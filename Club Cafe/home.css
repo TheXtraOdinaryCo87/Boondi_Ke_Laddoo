@@ -3,7 +3,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "BBH Bartle", sans-serif;
+  font-family: sans-serif;
   box-sizing: border-box;
 }
 
@@ -21,6 +21,7 @@ header {
 }
 
 #title {
+  font-family: "BBH Bartle", sans-serif;
   margin: 20px;
   color: #333;
 }
