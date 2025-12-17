@@ -3,14 +3,14 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "BBH Bartle", sans-serif;
   box-sizing: border-box;
 }
 
 x {
-    color: #ff4747;
-    font-weight: bolder;
-    font-size: larger;
+  color: #ff4747;
+  font-weight: bolder;
+  font-size: larger;
 }
 header {
   background-color: #f8f8f8;
