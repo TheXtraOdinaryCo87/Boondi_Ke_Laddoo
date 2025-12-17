@@ -8,9 +8,9 @@
 }
 
 x {
-    color: #ff4747;
-    font-weight: bolder;
-    font-size: larger;
+  color: #ff4747;
+  font-weight: bolder;
+  font-size: larger;
 }
 header {
   background-color: #f8f8f8;
@@ -41,4 +41,5 @@ nav a {
   text-align: center;
   padding: 100px 20px;
   background-color: #f9f8f8;
+  font-family: "BBH Bartle";
 }
