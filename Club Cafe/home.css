@@ -19,10 +19,14 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 80px;
+  background-color: #000; /*Just to check the height of the header*/
 }
 
 #title {
   font-family: "Cookie", sans-serif;
+  font-size: 3rem;
+  padding: 0 15px;
   margin: 20px;
   color: #333333;
 }
