@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Cookie&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
 
 * {
   margin: 0;
@@ -8,7 +8,7 @@
 }
 
 x {
-  font-family: "BBH Bartle", sans-serif;
+  font-family: "Cookie", sans-serif;
   color: #ff4747;
   font-weight: bolder;
   font-size: larger;
@@ -22,7 +22,7 @@ header {
 }
 
 #title {
-  font-family: "BBH Bartle", sans-serif;
+  font-family: "Cookie", sans-serif;
   margin: 20px;
   color: #333;
 }
