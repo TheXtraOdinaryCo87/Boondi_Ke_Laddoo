@@ -39,3 +39,8 @@ nav a {
   color: #333;
   font-weight: bold;
 }
+#welcome-section {
+  text-align: center;
+  padding: 100px 20px;
+  background-color: #f9f8f8;
+}
