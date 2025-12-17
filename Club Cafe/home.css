@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -6,9 +8,9 @@
 }
 
 x {
-  color: #ff4747;
-  font-weight: bolder;
-  font-size: larger;
+    color: #ff6347;
+    font-weight: bolder;
+    font-size: larger;
 }
 header {
   background-color: #f8f8f8;
@@ -34,9 +36,4 @@ nav a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
-}
-#welcome-section {
-  padding: 40px;
-  text-align: center;
-  background-color: #ffe9e9;
 }
