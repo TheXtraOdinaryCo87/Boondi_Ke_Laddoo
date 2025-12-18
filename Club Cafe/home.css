@@ -20,7 +20,7 @@ header {
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   height: 80px;
-  background-color: #000; /*Just to check the height of the header*/
+  background-color: #f8f8f8; /*Just to check the height of the header*/
 }
 
 #title {
@@ -44,7 +44,22 @@ nav a {
   font-weight: bold;
 }
 #welcome-section {
+  position: relative;
   text-align: center;
   padding: 100px 20px;
-  background-color: #f9f8f8;
+  background-color: #e7e6e6;
+}
+.panel {
+  position: relative;
+  height: max-content;
+  width: 90%;
+  justify-self: center;
+  background-color: #fff;
+}
+#welcome-section::after {
+  content: "";
+  position: relative;
+  height: 100%;
+  background-color: #333;
+  width: 100%;
 }
