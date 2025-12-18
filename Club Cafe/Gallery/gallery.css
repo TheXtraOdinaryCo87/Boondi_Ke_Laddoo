@@ -5,6 +5,7 @@
 }
 .panel {
   justify-self: center;
+  vertical-align: center;
   padding-top: 10vw;
   padding-bottom: 10vw;
   background-color: rgba(255, 255, 255, 0.17);
