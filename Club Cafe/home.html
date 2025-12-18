@@ -31,13 +31,19 @@
     <div class="separation">hhoihjhjkjkjbkb</div>
     <script>
       const button = document.querySelector(".panel");
-
+      const button1 = document.querySelector("header");
       const readout = document.querySelector("p");
 
       button.addEventListener("mousemove", (e) => {
         const { x, y } = button.getBoundingClientRect();
         button.style.setProperty("--x", e.clientX - x);
         button.style.setProperty("--y", e.clientY - y);
+      });
+
+      button1.addEventListener("mousemove", (e) => {
+        const { x, y } = button1.getBoundingClientRect();
+        button1.style.setProperty("--x", e.clientX - x);
+        button1.style.setProperty("--y", e.clientY - y);
       });
     </script>
   </body>

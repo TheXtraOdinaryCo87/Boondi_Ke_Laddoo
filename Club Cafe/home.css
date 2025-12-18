@@ -28,6 +28,7 @@ header {
   height: 80px;
   box-shadow: rgba(0, 0, 0, 0.299) 0 0 10px 1px;
   width: 100vw;
+  overflow: hidden;
 }
 
 #title {
@@ -85,6 +86,7 @@ main {
   box-shadow: rgba(0, 0, 0, 0.299) 0 0 10px 1px;
   overflow: hidden;
 }
+
 #welcome-section {
   text-align: center;
   position: relative;
@@ -107,5 +109,22 @@ main {
 }
 
 .panel:hover::after {
+  opacity: 0.4;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--y, 0) * 1px - 100px);
+  left: calc(var(--x, 0) * 1px - 100px);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(white, #00000000 60%);
+
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+header:hover::after {
   opacity: 0.4;
 }
