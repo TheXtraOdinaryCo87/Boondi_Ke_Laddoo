@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club Cafe - Delicious Cakes & Pastries</title>
+    <title>Club Cafe - Delicious Cakes & Pastries 🎄</title>
     <style>
         * {
             margin: 0;
@@ -14,18 +14,45 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #e0e0e0;
+            background: #1a1a1a;
+            position: relative;
+        }
+
+        /* Snowflakes Animation */
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: #ffffff;
+            font-size: 1em;
+            font-family: Arial, sans-serif;
+            text-shadow: 0 0 5px rgba(255,255,255,0.8);
+            animation: snowfall linear infinite;
+            z-index: 1;
+            pointer-events: none;
         }
 
         /* Navigation */
         nav {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #388E3C;
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(56, 142, 60, 0.5);
+            border-bottom: 3px solid #F9A825;
         }
 
         nav .container {
@@ -40,7 +67,7 @@
         nav .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: white;
+            color: #ffffff;
         }
 
         nav ul {
@@ -51,7 +78,7 @@
         }
 
         nav a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
             transition: opacity 0.3s;
             font-weight: 500;
@@ -71,8 +98,8 @@
             position: absolute;
             top: -8px;
             right: -8px;
-            background: #ff4757;
-            color: white;
+            background: #C2185B;
+            color: #ffffff;
             border-radius: 50%;
             width: 20px;
             height: 20px;
@@ -81,14 +108,30 @@
             justify-content: center;
             font-size: 0.7rem;
             font-weight: bold;
+            border: 2px solid #F9A825;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #C2185B;
+            color: #ffffff;
             padding: 150px 2rem 100px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '❄️';
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         .hero h1 {
@@ -106,25 +149,32 @@
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background: white;
-            color: #667eea;
+            background: #C2185B;
+            color: #ffffff;
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
             transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
+            border: 2px solid #F9A825;
             cursor: pointer;
             font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(194, 24, 91, 0.5);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(194, 24, 91, 0.7);
+            background: #AD1457;
         }
 
         .btn-secondary {
-            background: #667eea;
-            color: white;
+            background: #388E3C;
+            color: #ffffff;
+            border: 2px solid #F9A825;
+        }
+
+        .btn-secondary:hover {
+            background: #2E7D32;
         }
 
         /* Sections */
@@ -138,7 +188,19 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: #667eea;
+            color: #C2185B;
+            text-shadow: 2px 2px 4px rgba(194, 24, 91, 0.5);
+            position: relative;
+        }
+
+        h2::before {
+            content: '🎄';
+            margin-right: 10px;
+        }
+
+        h2::after {
+            content: '🎄';
+            margin-left: 10px;
         }
 
         /* Menu Categories */
@@ -152,18 +214,25 @@
 
         .category-btn {
             padding: 10px 25px;
-            background: #f0f0f0;
-            border: 2px solid #667eea;
+            background: #2d2d2d;
+            border: 2px solid #388E3C;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 500;
-            color: #667eea;
+            color: #e0e0e0;
+        }
+
+        .category-btn:hover {
+            background: #3d3d3d;
+            transform: scale(1.05);
         }
 
         .category-btn.active {
-            background: #667eea;
-            color: white;
+            background: #C2185B;
+            color: #ffffff;
+            border-color: #F9A825;
+            box-shadow: 0 4px 10px rgba(194, 24, 91, 0.5);
         }
 
         /* Menu Grid */
@@ -174,26 +243,36 @@
         }
 
         .menu-item {
-            background: white;
+            background: #2d2d2d;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .menu-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.8);
         }
 
         .menu-item-img {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #388E3C;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
+            position: relative;
+        }
+
+        .menu-item-img::before {
+            content: '❄️';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            opacity: 0.6;
         }
 
         .menu-item-content {
@@ -201,19 +280,19 @@
         }
 
         .menu-item h3 {
-            color: #333;
+            color: #e0e0e0;
             margin-bottom: 0.5rem;
         }
 
         .menu-item p {
-            color: #666;
+            color: #b0b0b0;
             font-size: 0.9rem;
             margin-bottom: 1rem;
         }
 
         .price {
             font-size: 1.3rem;
-            color: #667eea;
+            color: #C2185B;
             font-weight: bold;
         }
 
@@ -229,8 +308,8 @@
             top: 0;
             width: 400px;
             height: 100vh;
-            background: white;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            background: #2d2d2d;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.8);
             transition: right 0.3s;
             z-index: 2000;
             display: flex;
@@ -242,16 +321,17 @@
         }
 
         .cart-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #388E3C;
+            color: #ffffff;
             padding: 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 3px solid #F9A825;
         }
 
         .cart-header h2 {
-            color: white;
+            color: #ffffff;
             margin: 0;
             font-size: 1.5rem;
         }
@@ -259,7 +339,7 @@
         .close-cart {
             background: none;
             border: none;
-            color: white;
+            color: #ffffff;
             font-size: 2rem;
             cursor: pointer;
         }
@@ -268,10 +348,11 @@
             flex: 1;
             overflow-y: auto;
             padding: 1rem;
+            background: #2d2d2d;
         }
 
         .cart-item {
-            background: #f8f9fa;
+            background: #3d3d3d;
             padding: 1rem;
             margin-bottom: 1rem;
             border-radius: 10px;
@@ -281,12 +362,12 @@
         }
 
         .cart-item-info h4 {
-            color: #333;
+            color: #e0e0e0;
             margin-bottom: 0.5rem;
         }
 
         .cart-item-info p {
-            color: #666;
+            color: #b0b0b0;
             font-size: 0.9rem;
         }
 
@@ -300,11 +381,17 @@
             width: 30px;
             height: 30px;
             border: none;
-            background: #667eea;
-            color: white;
+            background: #388E3C;
+            color: #ffffff;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .cart-item-controls button:hover {
+            background: #2E7D32;
+            transform: scale(1.1);
         }
 
         .cart-item-controls span {
@@ -314,13 +401,14 @@
         }
 
         .remove-item {
-            background: #ff4757 !important;
+            background: #C2185B !important;
             margin-left: 0.5rem;
         }
 
         .cart-footer {
             padding: 1.5rem;
-            border-top: 2px solid #e0e0e0;
+            border-top: 2px solid #3d3d3d;
+            background: #2d2d2d;
         }
 
         .cart-total {
@@ -329,13 +417,13 @@
             margin-bottom: 1rem;
             font-size: 1.3rem;
             font-weight: bold;
-            color: #333;
+            color: #e0e0e0;
         }
 
         .empty-cart {
             text-align: center;
             padding: 3rem 1rem;
-            color: #666;
+            color: #b0b0b0;
         }
 
         .empty-cart-icon {
@@ -370,7 +458,7 @@
             align-items: center;
             justify-content: center;
             font-size: 3rem;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: #C2185B;
         }
 
         /* About Section */
@@ -382,7 +470,7 @@
         }
 
         .about-text h3 {
-            color: #667eea;
+            color: #C2185B;
             margin-bottom: 1rem;
             font-size: 1.8rem;
         }
@@ -390,17 +478,37 @@
         .about-text p {
             margin-bottom: 1rem;
             line-height: 1.8;
-            color: #666;
+            color: #b0b0b0;
         }
 
         .about-img {
             height: 400px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #388E3C;
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-img::before {
+            content: '🎄';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            opacity: 0.5;
+        }
+
+        .about-img::after {
+            content: '❄️';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2rem;
+            opacity: 0.5;
         }
 
         /* Contact Form */
@@ -411,10 +519,10 @@
         }
 
         .contact-form {
-            background: white;
+            background: #2d2d2d;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
         .form-group {
@@ -424,7 +532,7 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #667eea;
+            color: #C2185B;
             font-weight: 500;
         }
 
@@ -432,16 +540,19 @@
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #3d3d3d;
             border-radius: 8px;
             font-family: inherit;
             transition: border-color 0.3s;
+            background: #1a1a1a;
+            color: #e0e0e0;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #388E3C;
+            box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.3);
         }
 
         .form-group textarea {
@@ -456,14 +567,14 @@
         }
 
         .info-card {
-            background: white;
+            background: #2d2d2d;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
         .info-card h3 {
-            color: #667eea;
+            color: #C2185B;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -471,7 +582,7 @@
         }
 
         .info-card p {
-            color: #666;
+            color: #b0b0b0;
             line-height: 1.8;
         }
 
@@ -483,10 +594,10 @@
         }
 
         .review-card {
-            background: white;
+            background: #2d2d2d;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
             transition: transform 0.3s;
         }
 
@@ -495,29 +606,39 @@
         }
 
         .stars {
-            color: #ffd700;
+            color: #F9A825;
             font-size: 1.2rem;
             margin-bottom: 1rem;
         }
 
         .review-card p {
-            color: #666;
+            color: #b0b0b0;
             font-style: italic;
             margin-bottom: 1rem;
             line-height: 1.8;
         }
 
         .reviewer {
-            color: #667eea;
+            color: #C2185B;
             font-weight: bold;
         }
 
         /* Footer */
         footer {
-            background: #2d3748;
-            color: white;
+            background: #388E3C;
+            color: #ffffff;
             text-align: center;
             padding: 2rem;
+            border-top: 3px solid #F9A825;
+            position: relative;
+        }
+
+        footer::before {
+            content: '🎄 ❄️ 🎄';
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
         }
 
         /* Modal */
@@ -535,7 +656,7 @@
         }
 
         .modal-content {
-            background: white;
+            background: #2d2d2d;
             padding: 2rem;
             border-radius: 15px;
             max-width: 500px;
@@ -552,27 +673,28 @@
             top: 1rem;
             font-size: 2rem;
             cursor: pointer;
-            color: #666;
+            color: #b0b0b0;
         }
 
         .close:hover {
-            color: #333;
+            color: #ffffff;
         }
 
         .checkout-form h3 {
-            color: #667eea;
+            color: #C2185B;
             margin-bottom: 1.5rem;
         }
 
         .order-summary {
-            background: #f8f9fa;
+            background: #3d3d3d;
             padding: 1rem;
             border-radius: 10px;
             margin-bottom: 1.5rem;
+            border: 2px solid #388E3C;
         }
 
         .order-summary h4 {
-            color: #667eea;
+            color: #C2185B;
             margin-bottom: 1rem;
         }
 
@@ -580,15 +702,15 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.5rem;
-            color: #666;
+            color: #b0b0b0;
         }
 
         .summary-total {
-            border-top: 2px solid #e0e0e0;
+            border-top: 2px solid #3d3d3d;
             padding-top: 0.5rem;
             margin-top: 0.5rem;
             font-weight: bold;
-            color: #333;
+            color: #e0e0e0;
         }
 
         @keyframes fadeInDown {
@@ -655,8 +777,8 @@
         }
 
         .success-message {
-            background: #4caf50;
-            color: white;
+            background: #388E3C;
+            color: #ffffff;
             padding: 1rem;
             border-radius: 8px;
             margin-bottom: 1rem;
@@ -665,14 +787,14 @@
 
         /* Admin Panel */
         .admin-section {
-            background: #f8f9fa;
+            background: #2d2d2d;
             padding: 2rem;
             border-radius: 15px;
             margin-top: 2rem;
         }
 
         .admin-section h3 {
-            color: #667eea;
+            color: #C2185B;
             margin-bottom: 1.5rem;
         }
 
@@ -683,10 +805,11 @@
         }
 
         .order-card {
-            background: white;
+            background: #3d3d3d;
             padding: 1.5rem;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            color: #e0e0e0;
         }
 
         .order-header {
@@ -694,7 +817,7 @@
             justify-content: space-between;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e0e0e0;
+            border-bottom: 2px solid #4d4d4d;
         }
 
         .order-status {
@@ -705,13 +828,13 @@
         }
 
         .order-status.pending {
-            background: #ffeaa7;
-            color: #d63031;
+            background: #F9A825;
+            color: #ffffff;
         }
 
         .order-status.completed {
-            background: #55efc4;
-            color: #00b894;
+            background: #388E3C;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -719,7 +842,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">🍰 Club Cafe</div>
+            <div class="logo">🎄 Club Cafe 🎄</div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#menu">Menu</a></li>
@@ -739,9 +862,9 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <h1>Welcome to Club Cafe</h1>
-        <p>Freshly Baked Cakes & Pastries Made with Love</p>
-        <a href="#menu" class="btn">Order Now</a>
+        <h1>🎄 Welcome to Club Cafe 🎄</h1>
+        <p>Freshly Baked Christmas Cakes & Pastries Made with Love ❄️</p>
+        <a href="#menu" class="btn">Order Now 🎁</a>
     </section>
 
     <!-- Menu Section -->
@@ -848,7 +971,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Club Cafe. All rights reserved. | Made with ❤️ for cake lovers</p>
+        <p>&copy; 2024 Club Cafe. All rights reserved. | Made with ❤️ for cake lovers | 🎄 Merry Christmas! 🎄</p>
     </footer>
 
     <!-- Cart Sidebar -->
@@ -902,7 +1025,7 @@
                     </div>
                     <div class="form-group">
                         <label for="paymentMethod">Payment Method</label>
-                        <select id="paymentMethod" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px;">
+                        <select id="paymentMethod" style="width: 100%; padding: 12px; border: 2px solid #3d3d3d; border-radius: 8px; background: #1a1a1a; color: #e0e0e0;">
                             <option value="cod">Cash on Delivery</option>
                             <option value="card">Credit/Debit Card</option>
                             <option value="upi">UPI</option>
@@ -1081,10 +1204,12 @@
             const btn = event.target;
             const originalText = btn.textContent;
             btn.textContent = '✓ Added!';
-            btn.style.background = '#4caf50';
+            btn.style.background = '#388E3C';
+            btn.style.color = '#ffffff';
             setTimeout(() => {
                 btn.textContent = originalText;
                 btn.style.background = '';
+                btn.style.color = '';
             }, 1000);
         }
 
@@ -1344,7 +1469,48 @@
             displayMenu();
             await displayOrders();
             await displayReviews();
+            createSnowflakes();
         });
+
+        // Snowflake Animation
+        function createSnowflakes() {
+            const snowflakeContainer = document.createElement('div');
+            snowflakeContainer.style.position = 'fixed';
+            snowflakeContainer.style.top = '0';
+            snowflakeContainer.style.left = '0';
+            snowflakeContainer.style.width = '100%';
+            snowflakeContainer.style.height = '100%';
+            snowflakeContainer.style.pointerEvents = 'none';
+            snowflakeContainer.style.zIndex = '1';
+            document.body.appendChild(snowflakeContainer);
+
+            const snowflakes = ['❄', '❅', '❆', '✻', '✼', '✽', '✾', '✿'];
+            
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.textContent = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+                snowflake.style.left = Math.random() * 100 + '%';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                snowflake.style.animationDelay = Math.random() * 2 + 's';
+                
+                snowflakeContainer.appendChild(snowflake);
+
+                setTimeout(() => {
+                    snowflake.remove();
+                }, 5000);
+            }
+
+            // Create snowflakes periodically
+            setInterval(createSnowflake, 300);
+            
+            // Create initial snowflakes
+            for (let i = 0; i < 20; i++) {
+                setTimeout(createSnowflake, i * 100);
+            }
+        }
     </script>
 </body>
 </html>
