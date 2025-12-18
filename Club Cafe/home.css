@@ -57,7 +57,6 @@ nav a:hover {
   color: #e43636;
   font-size: large;
   text-shadow: #00000033 1px 1px 2px;
-
 }
 #backdrop {
   position: absolute;
@@ -84,6 +83,7 @@ main {
   text-align: center;
   gap: 20px;
   box-shadow: rgba(0, 0, 0, 0.299) 0 0 10px 1px;
+  overflow: hidden;
 }
 #welcome-section {
   text-align: center;
@@ -91,4 +91,21 @@ main {
 }
 .separation {
   height: 10px;
+}
+
+.panel::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--y, 0) * 1px - 100px);
+  left: calc(var(--x, 0) * 1px - 100px);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(white, #00000000 60%);
+
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.panel:hover::after {
+  opacity: 0.4;
 }
