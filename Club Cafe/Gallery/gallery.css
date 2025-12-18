@@ -22,3 +22,38 @@ d {
   font-size: 22px;
   color: #242424;
 }
+
+.panel::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--y, 0) * 1px - 100px);
+  left: calc(var(--x, 0) * 1px - 100px);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(white, #00000000 60%);
+
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.panel:hover::after {
+  opacity: 0.4;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--y, 0) * 1px - 100px);
+  left: calc(var(--x, 0) * 1px - 100px);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(white, #00000000 60%);
+
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: -1;
+}
+
+header:hover::after {
+  opacity: 0.4;
+}

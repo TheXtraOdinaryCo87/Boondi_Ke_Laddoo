@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Cafe - Delicious Cakes & Pastries</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff4757;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        /* Menu Categories */
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 10px 25px;
+            background: #f0f0f0;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            color: #667eea;
+        }
+
+        .category-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .menu-item-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+
+        .menu-item h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            transition: right 0.3s;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.open {
+            right: 0;
+        }
+
+        .cart-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h2 {
+            color: white;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .cart-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-item-info h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cart-item-controls button {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: #667eea;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cart-item-controls span {
+            min-width: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .remove-item {
+            background: #ff4757 !important;
+            margin-left: 0.5rem;
+        }
+
+        .cart-footer {
+            padding: 1.5rem;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #666;
+        }
+
+        .empty-cart-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .about-img {
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        /* Contact Form */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Reviews */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-card p {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .reviewer {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2500;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.3s;
+        }
+
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .checkout-form h3 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+        }
+
+        .order-summary {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .order-summary h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .summary-total {
+            border-top: 2px solid #e0e0e0;
+            padding-top: 0.5rem;
+            margin-top: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .success-message {
+            background: #4caf50;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        /* Admin Panel */
+        .admin-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .admin-section h3 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+        }
+
+        .order-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .order-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .order-status {
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .order-status.pending {
+            background: #ffeaa7;
+            color: #d63031;
+        }
+
+        .order-status.completed {
+            background: #55efc4;
+            color: #00b894;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">🍰 Club Cafe</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li>
+                    <div class="cart-icon" onclick="toggleCart()">
+                        🛒
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Welcome to Club Cafe</h1>
+        <p>Freshly Baked Cakes & Pastries Made with Love</p>
+        <a href="#menu" class="btn">Order Now</a>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <h2>Our Menu</h2>
+        
+        <div class="menu-categories">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="signature">Signature Cakes</button>
+            <button class="category-btn" data-category="premium">Premium Designer</button>
+            <button class="category-btn" data-category="cupcakes">Cupcakes</button>
+            <button class="category-btn" data-category="pastries">Pastries</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid"></div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><div>🎂</div></div>
+            <div class="gallery-item"><div>🍰</div></div>
+            <div class="gallery-item"><div>🧁</div></div>
+            <div class="gallery-item"><div>🍪</div></div>
+            <div class="gallery-item"><div>🎂</div></div>
+            <div class="gallery-item"><div>🍰</div></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Our Story</h3>
+                <p>Club Cafe has been serving the finest cakes and pastries since 2010. We believe in using only the freshest ingredients and traditional baking methods to create memorable desserts.</p>
+                <p>Our passionate team of bakers works tirelessly to bring you innovative flavors while maintaining the classic taste you love. Every cake is made with care and attention to detail.</p>
+                <p>From birthdays to weddings, we're here to make your celebrations sweeter!</p>
+            </div>
+            <div class="about-img">☕</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-form">
+                <div id="contactSuccess" class="success-message hidden">
+                    Thank you! We'll get back to you soon.
+                </div>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>📍 Location</h3>
+                    <p>123 Bakery Street, Pune, Maharashtra 411001</p>
+                </div>
+                <div class="info-card">
+                    <h3>🕐 Opening Hours</h3>
+                    <p>Monday - Saturday: 9:00 AM - 9:00 PM<br>
+                    Sunday: 10:00 AM - 8:00 PM</p>
+                </div>
+                <div class="info-card">
+                    <h3>📞 Contact</h3>
+                    <p>Phone: +91 98765 43210<br>
+                    Email: info@clubcafe.com</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Panel -->
+        <div class="admin-section">
+            <h3>📦 Recent Orders (Admin View)</h3>
+            <div id="ordersList" class="order-list"></div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="reviews-grid" id="reviewsGrid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Club Cafe. All rights reserved. | Made with ❤️ for cake lovers</p>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <div class="empty-cart-icon">🛒</div>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span>₹<span id="cartTotal">0</span></span>
+            </div>
+            <button class="btn btn-secondary" onclick="checkout()" style="width: 100%;">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCheckout()">&times;</span>
+            <div class="checkout-form">
+                <h3>Checkout</h3>
+                
+                <div class="order-summary" id="orderSummary"></div>
+                
+                <form id="checkoutForm">
+                    <div class="form-group">
+                        <label for="checkoutName">Full Name</label>
+                        <input type="text" id="checkoutName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutEmail">Email</label>
+                        <input type="email" id="checkoutEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutPhone">Phone Number</label>
+                        <input type="tel" id="checkoutPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutAddress">Delivery Address</label>
+                        <textarea id="checkoutAddress" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentMethod">Payment Method</label>
+                        <select id="paymentMethod" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px;">
+                            <option value="cod">Cash on Delivery</option>
+                            <option value="card">Credit/Debit Card</option>
+                            <option value="upi">UPI</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-secondary" style="width: 100%;">
+                        Place Order
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Database Management using persistent storage
+        class Database {
+            constructor() {
+                this.initDB();
+            }
+
+            async initDB() {
+                // Initialize database structure if not exists
+                const orders = await this.getOrders();
+                const reviews = await this.getReviews();
+                const contacts = await this.getContacts();
+                
+                if (!orders) await window.storage.set('orders', JSON.stringify([]), false);
+                if (!reviews) await this.loadDefaultReviews();
+                if (!contacts) await window.storage.set('contacts', JSON.stringify([]), false);
+            }
+
+            async loadDefaultReviews() {
+                const defaultReviews = [
+                    {
+                        id: 1,
+                        name: "Priya Sharma",
+                        rating: 5,
+                        comment: "The Black Forest cake was absolutely divine! Perfect for our anniversary celebration. Highly recommend Club Cafe!",
+                        date: new Date().toISOString()
+                    },
+                    {
+                        id: 2,
+                        name: "Rahul Desai",
+                        rating: 5,
+                        comment: "Best cupcakes in town! The Red Velvet cupcakes are my favorite. Fresh and delicious every time.",
+                        date: new Date().toISOString()
+                    },
+                    {
+                        id: 3,
+                        name: "Anjali Patel",
+                        rating: 5,
+                        comment: "Amazing service and quality! The Ferrero Rocher cake was a huge hit at my daughter's birthday party.",
+                        date: new Date().toISOString()
+                    }
+                ];
+                await window.storage.set('reviews', JSON.stringify(defaultReviews), false);
+            }
+
+            async getOrders() {
+                try {
+                    const result = await window.storage.get('orders', false);
+                    return result ? JSON.parse(result.value) : null;
+                } catch (error) {
+                    return null;
+                }
+            }
+
+            async addOrder(order) {
+                try {
+                    const orders = await this.getOrders() || [];
+                    order.id = Date.now();
+                    order.date = new Date().toISOString();
+                    order.status = 'pending';
+                    orders.unshift(order);
+                    await window.storage.set('orders', JSON.stringify(orders), false);
+                    return order;
+                } catch (error) {
+                    console.error('Error adding order:', error);
+                    return null;
+                }
+            }
+
+            async getReviews() {
+                try {
+                    const result = await window.storage.get('reviews', false);
+                    return result ? JSON.parse(result.value) : null;
+                } catch (error) {
+                    return null;
+                }
+            }
+
+            async addReview(review) {
+                try {
+                    const reviews = await this.getReviews() || [];
+                    review.id = Date.now();
+                    review.date = new Date().toISOString();
+                    reviews.unshift(review);
+                    await window.storage.set('reviews', JSON.stringify(reviews), false);
+                    return review;
+                } catch (error) {
+                    console.error('Error adding review:', error);
+                    return null;
+                }
+            }
+
+            async getContacts() {
+                try {
+                    const result = await window.storage.get('contacts', false);
+                    return result ? JSON.parse(result.value) : null;
+                } catch (error) {
+                    return null;
+                }
+            }
+
+            async addContact(contact) {
+                try {
+                    const contacts = await this.getContacts() || [];
+                    contact.id = Date.now();
+                    contact.date = new Date().toISOString();
+                    contacts.unshift(contact);
+                    await window.storage.set('contacts', JSON.stringify(contacts), false);
+                    return contact;
+                } catch (error) {
+                    console.error('Error adding contact:', error);
+                    return null;
+                }
+            }
+        }
+
+        const db = new Database();
+
+        // Menu Data
+        const menuItems = [
+            { name: "Classic Black Forest", category: "signature", price: 650, emoji: "🎂", id: 1 },
+            { name: "Red Velvet Delight", category: "signature", price: 700, emoji: "🎂", id: 2 },
+            { name: "Vanilla Buttercream", category: "signature", price: 600, emoji: "🎂", id: 3 },
+            { name: "Pineapple Fresh Cream", category: "signature", price: 550, emoji: "🎂", id: 4 },
+            { name: "Chocolate Truffle", category: "signature", price: 750, emoji: "🎂", id: 5 },
+            { name: "Ferrero Rocher Cake", category: "premium", price: 1200, emoji: "🍰", id: 6 },
+            { name: "Oreo Crunch Cake", category: "premium", price: 900, emoji: "🍰", id: 7 },
+            { name: "Blueberry Cheesecake", category: "premium", price: 1100, emoji: "🍰", id: 8 },
+            { name: "Butterscotch Caramel Cake", category: "premium", price: 950, emoji: "🍰", id: 9 },
+            { name: "Chocolate Fudge Cupcake", category: "cupcakes", price: 80, emoji: "🧁", id: 10 },
+            { name: "Vanilla Sprinkle Cupcake", category: "cupcakes", price: 70, emoji: "🧁", id: 11 },
+            { name: "Red Velvet Cupcake", category: "cupcakes", price: 90, emoji: "🧁", id: 12 },
+            { name: "Oreo Cupcake", category: "cupcakes", price: 85, emoji: "🧁", id: 13 },
+            { name: "Chocolate Pastry", category: "pastries", price: 60, emoji: "🍰", id: 14 },
+            { name: "Black Forest Pastry", category: "pastries", price: 70, emoji: "🍰", id: 15 },
+            { name: "Strawberry Pastry", category: "pastries", price: 65, emoji: "🍰", id: 16 },
+            { name: "Butterscotch Pastry", category: "pastries", price: 65, emoji: "🍰", id: 17 }
+        ];
+
+        // Cart Management
+        let cart = [];
+
+        function updateCartBadge() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartBadge').textContent = totalItems;
+        }
+
+        function addToCart(itemId) {
+            const item = menuItems.find(i => i.id === itemId);
+            const existingItem = cart.find(i => i.id === itemId);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...item, quantity: 1 });
+            }
+            
+            updateCartBadge();
+            updateCartDisplay();
+            
+            // Show feedback
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = '✓ Added!';
+            btn.style.background = '#4caf50';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+            }, 1000);
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <div class="empty-cart-icon">🛒</div>
+                        <p>Your cart is empty</p>
+                    </div>
+                `;
+                cartTotal.textContent = '0';
+                return;
+            }
+            
+            let total = 0;
+            cartItems.innerHTML = cart.map(item => {
+                total += item.price * item.quantity;
+                return `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <p>₹${item.price} × ${item.quantity}</p>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button onclick="decreaseQuantity(${item.id})">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="increaseQuantity(${item.id})">+</button>
+                            <button class="remove-item" onclick="removeFromCart(${item.id})">🗑️</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            cartTotal.textContent = total;
+        }
+
+        function increaseQuantity(itemId) {
+            const item = cart.find(i => i.id === itemId);
+            if (item) {
+                item.quantity++;
+                updateCartBadge();
+                updateCartDisplay();
+            }
+        }
+
+        function decreaseQuantity(itemId) {
+            const item = cart.find(i => i.id === itemId);
+            if (item && item.quantity > 1) {
+                item.quantity--;
+                updateCartBadge();
+                updateCartDisplay();
+            }
+        }
+
+        function removeFromCart(itemId) {
+            cart = cart.filter(i => i.id !== itemId);
+            updateCartBadge();
+            updateCartDisplay();
+        }
+
+        function toggleCart() {
+            document.getElementById('cartSidebar').classList.toggle('open');
+        }
+
+        // Display Menu Items
+        function displayMenu(category = 'all') {
+            const grid = document.getElementById('menuGrid');
+            grid.innerHTML = '';
+            
+            const filtered = category === 'all' 
+                ? menuItems 
+                : menuItems.filter(item => item.category === category);
+            
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'menu-item';
+                card.innerHTML = `
+                    <div class="menu-item-img">${item.emoji}</div>
+                    <div class="menu-item-content">
+                        <h3>${item.name}</h3>
+                        <p class="price">₹${item.price}</p>
+                        <button class="btn add-to-cart-btn" onclick="addToCart(${item.id})">
+                            Add to Cart
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Category Filter
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                displayMenu(btn.dataset.category);
+            });
+        });
+
+        // Checkout
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            const modal = document.getElementById('checkoutModal');
+            const summary = document.getElementById('orderSummary');
+            
+            let total = 0;
+            const summaryHTML = `
+                <h4>Order Summary</h4>
+                ${cart.map(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    return `
+                        <div class="summary-item">
+                            <span>${item.name} (${item.quantity}x)</span>
+                            <span>₹${itemTotal}</span>
+                        </div>
+                    `;
+                }).join('')}
+                <div class="summary-item summary-total">
+                    <span>Total</span>
+                    <span>₹${total}</span>
+                </div>
+            `;
+            
+            summary.innerHTML = summaryHTML;
+            modal.style.display = 'flex';
+            toggleCart();
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').style.display = 'none';
+        }
+
+        // Checkout Form Submission
+        document.getElementById('checkoutForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const order = {
+                customer: {
+                    name: document.getElementById('checkoutName').value,
+                    email: document.getElementById('checkoutEmail').value,
+                    phone: document.getElementById('checkoutPhone').value,
+                    address: document.getElementById('checkoutAddress').value
+                },
+                items: [...cart],
+                paymentMethod: document.getElementById('paymentMethod').value,
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+            };
+            
+            const result = await db.addOrder(order);
+            
+            if (result) {
+                alert(`Order Placed Successfully! 🎉\n\nOrder ID: ${result.id}\nTotal: ₹${order.total}\n\nWe'll contact you shortly at ${order.customer.phone}`);
+                
+                cart = [];
+                updateCartBadge();
+                updateCartDisplay();
+                closeCheckout();
+                this.reset();
+                
+                await displayOrders();
+            } else {
+                alert('Error placing order. Please try again.');
+            }
+        });
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const contact = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+            
+            await db.addContact(contact);
+            
+            document.getElementById('contactSuccess').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('contactSuccess').classList.add('hidden');
+                this.reset();
+            }, 3000);
+        });
+
+        // Display Orders (Admin View)
+        async function displayOrders() {
+            const orders = await db.getOrders();
+            const ordersList = document.getElementById('ordersList');
+            
+            if (!orders || orders.length === 0) {
+                ordersList.innerHTML = '<p style="text-align: center; color: #666;">No orders yet</p>';
+                return;
+            }
+            
+            ordersList.innerHTML = orders.slice(0, 5).map(order => `
+                <div class="order-card">
+                    <div class="order-header">
+                        <div>
+                            <strong>Order #${order.id}</strong><br>
+                            <small>${new Date(order.date).toLocaleString()}</small>
+                        </div>
+                        <span class="order-status ${order.status}">${order.status.toUpperCase()}</span>
+                    </div>
+                    <div>
+                        <strong>Customer:</strong> ${order.customer.name}<br>
+                        <strong>Phone:</strong> ${order.customer.phone}<br>
+                        <strong>Items:</strong> ${order.items.map(i => `${i.name} (${i.quantity}x)`).join(', ')}<br>
+                        <strong>Total:</strong> ₹${order.total}<br>
+                        <strong>Payment:</strong> ${order.paymentMethod.toUpperCase()}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Display Reviews
+        async function displayReviews() {
+            const reviews = await db.getReviews();
+            const reviewsGrid = document.getElementById('reviewsGrid');
+            
+            if (!reviews || reviews.length === 0) {
+                reviewsGrid.innerHTML = '<p style="text-align: center; color: #666;">No reviews yet</p>';
+                return;
+            }
+            
+            reviewsGrid.innerHTML = reviews.map(review => `
+                <div class="review-card">
+                    <div class="stars">${'⭐'.repeat(review.rating)}</div>
+                    <p>"${review.comment}"</p>
+                    <div class="reviewer">- ${review.name}</div>
+                </div>
+            `).join('');
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Initialize on page load
+        window.addEventListener('load', async () => {
+            displayMenu();
+            await displayOrders();
+            await displayReviews();
+        });
+    </script>
+</body>
+</html>
