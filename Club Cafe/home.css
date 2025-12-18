@@ -10,16 +10,16 @@
   }
 }
 body {
-  background-color: #F6EFD2;
+  background-color: #f6efd2;
 }
 x {
   font-family: "Cookie", sans-serif;
-  color: #E43636;
+  color: #e43636;
   font-weight: bolder;
   font-size: larger;
 }
 header {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.17);
   backdrop-filter: blur(3px);
   border-radius: 0 0 15px 15px;
   position: absolute;
@@ -38,6 +38,7 @@ header {
   margin: 20px;
   cursor: pointer;
   color: #333333;
+  text-shadow: #ffffff 1px 1px 0px;
 }
 nav {
   display: flex;
@@ -52,15 +53,16 @@ nav a {
   color: #333;
   font-weight: bold;
   transition: 0.3s;
+  text-shadow: #ffffff 1px 1px 2px;
 }
 nav a:hover {
-  color: #E43636;
+  color: #e43636;
   font-size: large;
 }
 #backdrop {
   position: absolute;
-  width: 100vw;
-  height: auto;
+  width: 100vw; /* Set the desired width for the cropped area */
+  height: auto; /* Set the desired height for the cropped area */
   justify-self: center;
   z-index: -1;
 }
@@ -72,7 +74,7 @@ nav a:hover {
   position: relative;
   text-align: center;
   gap: 20px;
-  top: 100px;
+  top: 20vw;
 }
 #welcome-section {
   text-align: center;
