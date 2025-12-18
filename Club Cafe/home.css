@@ -22,7 +22,6 @@ header {
   background-color: rgba(255, 255, 255, 0.17);
   backdrop-filter: blur(7px);
   border-radius: 0 0 15px 15px;
-  position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -66,6 +65,15 @@ nav a:hover {
   height: auto; /* Set the desired height for the cropped area */
   justify-self: center;
   z-index: -1;
+  :root {
+    --height: 100%;
+  }
+}
+main {
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .panel {
   display: flex;
@@ -81,4 +89,7 @@ nav a:hover {
 #welcome-section {
   text-align: center;
   position: relative;
+}
+.separation {
+  height: 10px;
 }
