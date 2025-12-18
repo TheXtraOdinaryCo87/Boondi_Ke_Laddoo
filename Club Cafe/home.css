@@ -26,8 +26,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   height: 80px;
+  box-shadow: rgba(0, 0, 0, 0.299) 0 0 10px 1px;
   width: 100vw;
 }
 
@@ -75,7 +75,8 @@ nav a:hover {
   position: relative;
   text-align: center;
   gap: 20px;
-  top: 15vw;
+  top: 10vw;
+  box-shadow: rgba(0, 0, 0, 0.299) 0 0 10px 1px;
 }
 #welcome-section {
   text-align: center;
