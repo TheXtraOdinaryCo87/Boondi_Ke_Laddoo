@@ -917,22 +917,22 @@
                 <div id="contactSuccess" class="success-message hidden">
                     Thank you! We'll get back to you soon.
                 </div>
-                <form id="contactForm">
+                <form id="contactForm" novalidate>
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" required>
+                        <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="tel" id="phone" required>
+                        <input type="tel" id="phone" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" required></textarea>
+                        <textarea id="message" name="message" required></textarea>
                     </div>
                     <button type="submit" class="btn">Send Message</button>
                 </form>
@@ -1006,26 +1006,26 @@
                 
                 <div class="order-summary" id="orderSummary"></div>
                 
-                <form id="checkoutForm">
+                <form id="checkoutForm" novalidate>
                     <div class="form-group">
                         <label for="checkoutName">Full Name</label>
-                        <input type="text" id="checkoutName" required>
+                        <input type="text" id="checkoutName" name="full_name" required>
                     </div>
                     <div class="form-group">
                         <label for="checkoutEmail">Email</label>
-                        <input type="email" id="checkoutEmail" required>
+                        <input type="email" id="checkoutEmail" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="checkoutPhone">Phone Number</label>
-                        <input type="tel" id="checkoutPhone" required>
+                        <input type="tel" id="checkoutPhone" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label for="checkoutAddress">Delivery Address</label>
-                        <textarea id="checkoutAddress" required></textarea>
+                        <textarea id="checkoutAddress" name="address" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="paymentMethod">Payment Method</label>
-                        <select id="paymentMethod" style="width: 100%; padding: 12px; border: 2px solid #3d3d3d; border-radius: 8px; background: #1a1a1a; color: #e0e0e0;">
+                        <select id="paymentMethod" name="paymentMethod" style="width: 100%; padding: 12px; border: 2px solid #3d3d3d; border-radius: 8px; background: #1a1a1a; color: #e0e0e0;">
                             <option value="cod">Cash on Delivery</option>
                             <option value="card">Credit/Debit Card</option>
                             <option value="upi">UPI</option>
@@ -1368,6 +1368,23 @@
             };
             
             const result = await db.addOrder(order);
+
+            // Attempt to send to server as well
+            try {
+                const resp = await fetch('submit_checkout.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(order)
+                });
+                const serverData = await resp.json();
+                if (serverData && serverData.success) {
+                    console.log('Order saved to server with id', serverData.id);
+                } else {
+                    console.warn('Server checkout response:', serverData);
+                }
+            } catch (err) {
+                console.error('Error sending order to server:', err);
+            }
             
             if (result) {
                 alert(`Order Placed Successfully! 🎉\n\nOrder ID: ${result.id}\nTotal: ₹${order.total}\n\nWe'll contact you shortly at ${order.customer.phone}`);
@@ -1396,6 +1413,23 @@
             };
             
             await db.addContact(contact);
+
+            // Send to server
+            try {
+                const resp = await fetch('submit_contact.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(contact)
+                });
+                const serverData = await resp.json();
+                if (serverData && serverData.success) {
+                    console.log('Contact saved to server with id', serverData.id);
+                } else {
+                    console.warn('Server contact response:', serverData);
+                }
+            } catch (err) {
+                console.error('Error sending contact to server:', err);
+            }
             
             document.getElementById('contactSuccess').classList.remove('hidden');
             setTimeout(() => {
