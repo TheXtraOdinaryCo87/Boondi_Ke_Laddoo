@@ -45,13 +45,13 @@
 
         /* Navigation */
         nav {
-            background: #388E3C;
+            background: #1F4529;
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(56, 142, 60, 0.5);
+            box-shadow: 0 4px 15px rgba(31, 69, 41, 0.5);
             border-bottom: 3px solid #F9A825;
         }
 
@@ -98,7 +98,7 @@
             position: absolute;
             top: -8px;
             right: -8px;
-            background: #C2185B;
+            background: #FB4141;
             color: #ffffff;
             border-radius: 50%;
             width: 20px;
@@ -113,20 +113,34 @@
 
         /* Hero Section */
         .hero {
-            background: #C2185B;
+            background-image: url('Club Cafe/Assets/Backdrop1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: #ffffff;
             padding: 150px 2rem 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
 
         .hero::before {
-            content: '❄️';
+            content: '';
             position: absolute;
-            font-size: 2rem;
-            opacity: 0.3;
-            animation: float 3s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero h1,
+        .hero p,
+        .hero .btn {
+            position: relative;
+            z-index: 2;
         }
 
         @keyframes float {
@@ -149,7 +163,7 @@
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background: #C2185B;
+            background: #FB4141;
             color: #ffffff;
             text-decoration: none;
             border-radius: 30px;
@@ -158,23 +172,23 @@
             border: 2px solid #F9A825;
             cursor: pointer;
             font-size: 1rem;
-            box-shadow: 0 4px 10px rgba(194, 24, 91, 0.5);
+            box-shadow: 0 4px 10px rgba(251, 65, 65, 0.5);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(194, 24, 91, 0.7);
-            background: #AD1457;
+            box-shadow: 0 10px 25px rgba(251, 65, 65, 0.7);
+            background: #FB4141;
         }
 
         .btn-secondary {
-            background: #388E3C;
+            background: #1F4529;
             color: #ffffff;
             border: 2px solid #F9A825;
         }
 
         .btn-secondary:hover {
-            background: #2E7D32;
+            background: #1F4529;
         }
 
         /* Sections */
@@ -188,8 +202,8 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: #C2185B;
-            text-shadow: 2px 2px 4px rgba(194, 24, 91, 0.5);
+            color: #FB4141;
+            text-shadow: 2px 2px 4px rgba(251, 65, 65, 0.5);
             position: relative;
         }
 
@@ -215,7 +229,7 @@
         .category-btn {
             padding: 10px 25px;
             background: #2d2d2d;
-            border: 2px solid #388E3C;
+            border: 2px solid #1F4529;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s;
@@ -229,10 +243,10 @@
         }
 
         .category-btn.active {
-            background: #C2185B;
+            background: #FB4141;
             color: #ffffff;
             border-color: #F9A825;
-            box-shadow: 0 4px 10px rgba(194, 24, 91, 0.5);
+            box-shadow: 0 4px 10px rgba(251, 65, 65, 0.5);
         }
 
         /* Menu Grid */
@@ -258,7 +272,7 @@
         .menu-item-img {
             width: 100%;
             height: 200px;
-            background: #388E3C;
+            background: #1F4529;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -292,7 +306,7 @@
 
         .price {
             font-size: 1.3rem;
-            color: #C2185B;
+            color: #FB4141;
             font-weight: bold;
         }
 
@@ -321,7 +335,7 @@
         }
 
         .cart-header {
-            background: #388E3C;
+            background: #1F4529;
             color: #ffffff;
             padding: 1.5rem;
             display: flex;
@@ -381,7 +395,7 @@
             width: 30px;
             height: 30px;
             border: none;
-            background: #388E3C;
+            background: #1F4529;
             color: #ffffff;
             border-radius: 5px;
             cursor: pointer;
@@ -390,7 +404,7 @@
         }
 
         .cart-item-controls button:hover {
-            background: #2E7D32;
+            background: #1F4529;
             transform: scale(1.1);
         }
 
@@ -401,7 +415,7 @@
         }
 
         .remove-item {
-            background: #C2185B !important;
+            background: #FB4141 !important;
             margin-left: 0.5rem;
         }
 
@@ -458,7 +472,7 @@
             align-items: center;
             justify-content: center;
             font-size: 3rem;
-            background: #C2185B;
+            background: #FB4141;
         }
 
         /* About Section */
@@ -470,7 +484,7 @@
         }
 
         .about-text h3 {
-            color: #C2185B;
+            color: #FB4141;
             margin-bottom: 1rem;
             font-size: 1.8rem;
         }
@@ -483,7 +497,7 @@
 
         .about-img {
             height: 400px;
-            background: #388E3C;
+            background: #1F4529;
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -532,7 +546,7 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #C2185B;
+            color: #FB4141;
             font-weight: 500;
         }
 
@@ -551,8 +565,8 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #388E3C;
-            box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.3);
+            border-color: #1F4529;
+            box-shadow: 0 0 0 3px rgba(31, 69, 41, 0.3);
         }
 
         .form-group textarea {
@@ -574,7 +588,7 @@
         }
 
         .info-card h3 {
-            color: #C2185B;
+            color: #FB4141;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -619,13 +633,13 @@
         }
 
         .reviewer {
-            color: #C2185B;
+            color: #FB4141;
             font-weight: bold;
         }
 
         /* Footer */
         footer {
-            background: #388E3C;
+            background: #1F4529;
             color: #ffffff;
             text-align: center;
             padding: 2rem;
@@ -681,7 +695,7 @@
         }
 
         .checkout-form h3 {
-            color: #C2185B;
+            color: #FB4141;
             margin-bottom: 1.5rem;
         }
 
@@ -690,11 +704,11 @@
             padding: 1rem;
             border-radius: 10px;
             margin-bottom: 1.5rem;
-            border: 2px solid #388E3C;
+            border: 2px solid #1F4529;
         }
 
         .order-summary h4 {
-            color: #C2185B;
+            color: #FB4141;
             margin-bottom: 1rem;
         }
 
@@ -777,7 +791,7 @@
         }
 
         .success-message {
-            background: #388E3C;
+            background: #1F4529;
             color: #ffffff;
             padding: 1rem;
             border-radius: 8px;
@@ -794,7 +808,7 @@
         }
 
         .admin-section h3 {
-            color: #C2185B;
+            color: #FB4141;
             margin-bottom: 1.5rem;
         }
 
@@ -833,7 +847,7 @@
         }
 
         .order-status.completed {
-            background: #388E3C;
+            background: #1F4529;
             color: #ffffff;
         }
     </style>
@@ -1053,9 +1067,15 @@
                 const reviews = await this.getReviews();
                 const contacts = await this.getContacts();
                 
-                if (!orders) await window.storage.set('orders', JSON.stringify([]), false);
-                if (!reviews) await this.loadDefaultReviews();
-                if (!contacts) await window.storage.set('contacts', JSON.stringify([]), false);
+                if (!orders || orders.length === 0) {
+                    localStorage.setItem('orders', JSON.stringify([]));
+                }
+                if (!reviews || reviews.length === 0) {
+                    await this.loadDefaultReviews();
+                }
+                if (!contacts || contacts.length === 0) {
+                    localStorage.setItem('contacts', JSON.stringify([]));
+                }
             }
 
             async loadDefaultReviews() {
@@ -1082,13 +1102,13 @@
                         date: new Date().toISOString()
                     }
                 ];
-                await window.storage.set('reviews', JSON.stringify(defaultReviews), false);
+                localStorage.setItem('reviews', JSON.stringify(defaultReviews));
             }
 
             async getOrders() {
                 try {
-                    const result = await window.storage.get('orders', false);
-                    return result ? JSON.parse(result.value) : null;
+                    const data = localStorage.getItem('orders');
+                    return data ? JSON.parse(data) : null;
                 } catch (error) {
                     return null;
                 }
@@ -1101,7 +1121,7 @@
                     order.date = new Date().toISOString();
                     order.status = 'pending';
                     orders.unshift(order);
-                    await window.storage.set('orders', JSON.stringify(orders), false);
+                    localStorage.setItem('orders', JSON.stringify(orders));
                     return order;
                 } catch (error) {
                     console.error('Error adding order:', error);
@@ -1111,8 +1131,8 @@
 
             async getReviews() {
                 try {
-                    const result = await window.storage.get('reviews', false);
-                    return result ? JSON.parse(result.value) : null;
+                    const data = localStorage.getItem('reviews');
+                    return data ? JSON.parse(data) : null;
                 } catch (error) {
                     return null;
                 }
@@ -1124,7 +1144,7 @@
                     review.id = Date.now();
                     review.date = new Date().toISOString();
                     reviews.unshift(review);
-                    await window.storage.set('reviews', JSON.stringify(reviews), false);
+                    localStorage.setItem('reviews', JSON.stringify(reviews));
                     return review;
                 } catch (error) {
                     console.error('Error adding review:', error);
@@ -1134,8 +1154,8 @@
 
             async getContacts() {
                 try {
-                    const result = await window.storage.get('contacts', false);
-                    return result ? JSON.parse(result.value) : null;
+                    const data = localStorage.getItem('contacts');
+                    return data ? JSON.parse(data) : null;
                 } catch (error) {
                     return null;
                 }
@@ -1147,7 +1167,7 @@
                     contact.id = Date.now();
                     contact.date = new Date().toISOString();
                     contacts.unshift(contact);
-                    await window.storage.set('contacts', JSON.stringify(contacts), false);
+                    localStorage.setItem('contacts', JSON.stringify(contacts));
                     return contact;
                 } catch (error) {
                     console.error('Error adding contact:', error);
@@ -1204,7 +1224,7 @@
             const btn = event.target;
             const originalText = btn.textContent;
             btn.textContent = '✓ Added!';
-            btn.style.background = '#388E3C';
+            btn.style.background = '#1F4529';
             btn.style.color = '#ffffff';
             setTimeout(() => {
                 btn.textContent = originalText;
@@ -1410,7 +1430,7 @@
             const ordersList = document.getElementById('ordersList');
             
             if (!orders || orders.length === 0) {
-                ordersList.innerHTML = '<p style="text-align: center; color: #666;">No orders yet</p>';
+                ordersList.innerHTML = '<p style="text-align: center; color: #b0b0b0;">No orders yet</p>';
                 return;
             }
             
@@ -1440,7 +1460,7 @@
             const reviewsGrid = document.getElementById('reviewsGrid');
             
             if (!reviews || reviews.length === 0) {
-                reviewsGrid.innerHTML = '<p style="text-align: center; color: #666;">No reviews yet</p>';
+                reviewsGrid.innerHTML = '<p style="text-align: center; color: #b0b0b0;">No reviews yet</p>';
                 return;
             }
             
