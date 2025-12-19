@@ -1,3 +1,16 @@
+/* Hide scrollbars but keep scrolling functionality */
+html,
+body,
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 * {
   margin: 0;
   padding: 0;
