@@ -48,14 +48,16 @@
 
         /* Navigation */
         nav {
-            background: #1F4529;
+            background: rgba(31, 69, 41, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(31, 69, 41, 0.5);
-            border-bottom: 3px solid #F9A825;
+            box-shadow: 0 4px 15px rgba(31, 69, 41, 0.3);
+            border-bottom: 1px solid rgba(249, 168, 37, 0.3);
         }
 
         nav .container {
@@ -126,6 +128,9 @@
             position: relative;
             overflow: hidden;
             width: 100vw;
+            max-width: none;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
         }
 
         .hero::before {
@@ -160,6 +165,26 @@
             font-size: 3.5rem;
             margin-bottom: 1rem;
             animation: fadeInDown 1s;
+            position: relative;
+            display: inline-block;
+            padding: 2rem 3rem;
+            border-radius: 20px;
+        }
+
+        .hero h1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: -1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
@@ -213,17 +238,27 @@
             color: #A02334;
             text-shadow: 2px 2px 4px rgba(160, 35, 52, 0.5);
             position: relative;
+            display: inline-block;
+            padding: 1.5rem 2.5rem;
+            border-radius: 20px;
         }
 
         h2::before {
-            content: '🎄';
-            margin-right: 10px;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: -1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
-        h2::after {
-            content: '🎄';
-            margin-left: 10px;
-        }
 
         /* Menu Categories */
         .menu-categories {
@@ -361,6 +396,26 @@
             color: #ffffff;
             margin: 0;
             font-size: 1.5rem;
+            position: relative;
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 15px;
+        }
+
+        .cart-header h2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: -1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .close-cart {
@@ -500,6 +555,26 @@
             color: #A02334;
             margin-bottom: 1rem;
             font-size: 1.8rem;
+            position: relative;
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+        }
+
+        .about-text h3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: -1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .about-text p {
@@ -603,9 +678,28 @@
         .info-card h3 {
             color: #A02334;
             margin-bottom: 1rem;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            position: relative;
+            padding: 0.75rem 1.5rem;
+            border-radius: 15px;
+        }
+
+        .info-card h3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: -1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .info-card p {
@@ -710,6 +804,26 @@
         .checkout-form h3 {
             color: #A02334;
             margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+        }
+
+        .checkout-form h3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: -1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .order-summary {
@@ -823,6 +937,26 @@
         .admin-section h3 {
             color: #A02334;
             margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+        }
+
+        .admin-section h3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: -1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .order-list {
@@ -896,7 +1030,7 @@
 
     <!-- Menu Section -->
     <section id="menu">
-        <h2>Our Menu</h2>
+        <h2>🎄 Our Menu 🎄</h2>
         
         <div class="menu-categories">
             <button class="category-btn active" data-category="all">All</button>
@@ -911,7 +1045,7 @@
 
     <!-- Gallery Section -->
     <section id="gallery">
-        <h2>Gallery</h2>
+        <h2>🎄 Gallery 🎄</h2>
         <div class="gallery-grid">
             <div class="gallery-item"><div>🎂</div></div>
             <div class="gallery-item"><div>🍰</div></div>
@@ -924,7 +1058,7 @@
 
     <!-- About Section -->
     <section id="about">
-        <h2>About Us</h2>
+        <h2>🎄 About Us 🎄</h2>
         <div class="about-content">
             <div class="about-text">
                 <h3>Our Story</h3>
@@ -938,7 +1072,7 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2>Contact Us</h2>
+        <h2>🎄 Contact Us 🎄</h2>
         <div class="contact-container">
             <div class="contact-form">
                 <div id="contactSuccess" class="success-message hidden">
@@ -992,7 +1126,7 @@
 
     <!-- Reviews Section -->
     <section id="reviews">
-        <h2>Customer Reviews</h2>
+        <h2>🎄 Customer Reviews 🎄</h2>
         <div class="reviews-grid" id="reviewsGrid"></div>
     </section>
 
