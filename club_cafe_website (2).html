@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club Cafe - Delicious Cakes & Pastries 🎄</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +15,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: #e0e0e0;
             background: #1a1a1a;
@@ -36,7 +39,7 @@
             top: -10px;
             color: #ffffff;
             font-size: 1em;
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             text-shadow: 0 0 5px rgba(255,255,255,0.8);
             animation: snowfall linear infinite;
             z-index: 1;
@@ -146,6 +149,11 @@
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .hero h1 {
@@ -287,6 +295,11 @@
             right: 10px;
             font-size: 1.5rem;
             opacity: 0.6;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .menu-item:hover .menu-item-img::before {
+            animation: spin 1s ease-in-out;
         }
 
         .menu-item-content {
@@ -1196,7 +1209,8 @@
             { name: "Chocolate Pastry", category: "pastries", price: 60, emoji: "🍰", id: 14 },
             { name: "Black Forest Pastry", category: "pastries", price: 70, emoji: "🍰", id: 15 },
             { name: "Strawberry Pastry", category: "pastries", price: 65, emoji: "🍰", id: 16 },
-            { name: "Butterscotch Pastry", category: "pastries", price: 65, emoji: "🍰", id: 17 }
+            { name: "Butterscotch Pastry", category: "pastries", price: 65, emoji: "🍰", id: 17 },
+            { name: "Boondi ke laddoo", category: "pastries", price: 75, emoji: "🍡", id: 18 }
         ];
 
         // Cart Management
