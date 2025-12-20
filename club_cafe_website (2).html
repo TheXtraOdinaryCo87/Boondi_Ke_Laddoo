@@ -11,6 +11,11 @@
       rel="stylesheet"
     />
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+      x {
+        color: #a02334;
+        font-weight: bold;
+      }
       * {
         margin: 0;
         padding: 0;
@@ -67,7 +72,7 @@
         background: rgba(31, 69, 41, 0.7);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        padding: 1rem 0;
+        padding: 0rem 0;
         position: fixed;
         width: 100%;
         top: 0;
@@ -86,9 +91,19 @@
       }
 
       nav .logo {
-        font-size: 1.8rem;
-        font-weight: bold;
+        font-size: 2.8rem;
         color: #ffffff;
+        font-family: "Cookie", cursive;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      nav .logo img,
+      nav .logo .logo-img {
+        width: 44px;
+        height: auto;
+        display: inline-block;
       }
 
       nav ul {
@@ -375,9 +390,54 @@
         padding: 1.5rem;
       }
 
+      /* Glassy panels: separate for name and price */
+      .name-panel,
+      .price-panel {
+        position: relative;
+        text-align: center;
+        display: block;
+        margin: 0.35rem 0;
+      }
+
+      .name-panel::before,
+      .price-panel::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 0;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+      }
+
+      .name-panel::before {
+        width: calc(100% - 3rem);
+        height: 44px;
+      }
+
+      .price-panel::before {
+        width: 120px;
+        height: 34px;
+      }
+
+      .name-panel h3,
+      .price-panel .price {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        padding: 0.45rem 0.6rem;
+        display: inline-block;
+        text-align: center;
+      }
+
       .menu-item h3 {
         color: #e0e0e0;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
       }
 
       .menu-item p {
@@ -966,6 +1026,20 @@
         padding: 2rem;
         border-radius: 15px;
         margin-top: 2rem;
+        position: relative;
+      }
+
+      .admin-section .hide-admin-btn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: rgba(0, 0, 0, 0.5);
+        color: #ffffff;
+        border: none;
+        padding: 6px 8px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.95rem;
       }
 
       .admin-section h3 {
@@ -1037,7 +1111,14 @@
     <!-- Navigation -->
     <nav>
       <div class="container">
-        <div class="logo">🎄 Club Cafe 🎄</div>
+        <div class="logo">
+          <img
+            src="Club%20Cafe/Assets/Cl%C3%BCb%20C%C3%A3f%C3%A9%20L%C3%B6g%C5%8D.svg"
+            alt="Club Cafe logo"
+            class="logo-img"
+          />
+          Club Cafe
+        </div>
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#menu">Menu</a></li>
@@ -1050,6 +1131,9 @@
               🛒
               <span class="cart-badge" id="cartBadge">0</span>
             </div>
+          </li>
+          <li>
+            <button class="btn" onclick="promptAdmin()">Admin</button>
           </li>
         </ul>
       </div>
@@ -1091,6 +1175,8 @@
         <div class="gallery-item"><div>🍪</div></div>
         <div class="gallery-item"><div>🎂</div></div>
         <div class="gallery-item"><div>🍰</div></div>
+        <div class="gallery-item"><div>🧁</div></div>
+        <div class="gallery-item"><div>🍪</div></div>
       </div>
     </section>
 
@@ -1170,8 +1256,15 @@
         </div>
       </div>
 
-      <!-- Admin Panel -->
-      <div class="admin-section">
+      <!-- Admin Panel (hidden, revealed with password) -->
+      <div id="adminSection" class="admin-section hidden">
+        <button
+          class="hide-admin-btn"
+          onclick="hideAdmin()"
+          aria-label="Hide admin"
+        >
+          ✖
+        </button>
         <h3>📦 Recent Orders (Admin View)</h3>
         <div id="ordersList" class="order-list"></div>
       </div>
@@ -1644,15 +1737,15 @@
           const card = document.createElement("div");
           card.className = "menu-item";
           card.innerHTML = `
-                    <div class="menu-item-img">${item.emoji}</div>
-                    <div class="menu-item-content">
-                        <h3>${item.name}</h3>
-                        <p class="price">₹${item.price}</p>
-                        <button class="btn add-to-cart-btn" onclick="addToCart(${item.id})">
-                            Add to Cart
-                        </button>
-                    </div>
-                `;
+                <div class="menu-item-img">${item.emoji}</div>
+                <div class="menu-item-content">
+                  <div class="name-panel"><h3>${item.name}</h3></div>
+                  <div class="price-panel"><p class="price">₹${item.price}</p></div>
+                  <button class="btn add-to-cart-btn" onclick="addToCart(${item.id})">
+                    Add to Cart
+                  </button>
+                </div>
+              `;
           grid.appendChild(card);
         });
       }
@@ -1844,6 +1937,28 @@
             `
           )
           .join("");
+      }
+
+      // Prompt for admin password and reveal admin view if correct
+      function promptAdmin() {
+        const pw = prompt("Enter admin password:");
+        if (pw === null) return; // user cancelled
+        if (pw === "123") {
+          const admin = document.getElementById("adminSection");
+          if (admin) {
+            admin.classList.remove("hidden");
+            if (typeof displayOrders === "function") displayOrders();
+          }
+        } else {
+          alert("Incorrect password");
+        }
+      }
+
+      function hideAdmin() {
+        const admin = document.getElementById("adminSection");
+        if (admin) {
+          admin.classList.add("hidden");
+        }
       }
 
       // Display Reviews
