@@ -1,0 +1,49 @@
+/* Club Cafe — Vintage Christmas theme */
+:root{
+  --paper:#F6EDE2;
+  --accent:#8b0000; /* deep crimson */
+  --green:#2b4f3f;
+  --muted:#7a6d60;
+}
+*{box-sizing:border-box}
+body{font-family:"Playfair Display", serif;background:var(--paper);color:#222;margin:0;line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:1rem}
+.site-header{background:linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.03))}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.logo img{height:46px}
+.nav-links{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
+.nav-links a{color:var(--green);text-decoration:none;padding:.25rem .5rem;border-radius:4px}
+.nav-links a.active, .nav-links a:hover{background:rgba(139,0,0,0.06);color:var(--accent)}
+.hero{position:relative;overflow:hidden;padding:3rem 0 5rem}
+.hero-decor{position:absolute;right:-6%;top:-4%;width:60%;opacity:.12;filter:grayscale(.2) blur(.5px)}
+.hero-inner{position:relative;z-index:2}
+.site-title{font-family:"Cinzel", serif;font-size:3rem;margin:0;color:var(--accent);letter-spacing:1px}
+.tagline{color:var(--muted);margin:.5rem 0 1.25rem}
+.btn{background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:6px;text-decoration:none;display:inline-block}
+.btn-outline{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+.intro{display:flex;gap:2rem;align-items:center;padding:2rem 0}
+.intro-right img{width:100%;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.specials h3{margin-top:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.card{background:#fff;padding:1rem;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.06);display:flex;flex-direction:column;gap:.5rem}
+.card img{width:100%;height:140px;object-fit:cover;border-radius:6px}
+.card h4{margin:.2rem 0}
+.price{margin-top:auto;font-weight:700;color:var(--accent)}
+.gallery-preview .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.gallery-preview img{width:100%;height:160px;object-fit:cover;border-radius:6px}
+.p-gallery .gallery-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.5rem}
+.site-footer{background:linear-gradient(0deg,rgba(0,0,0,0.05),transparent);padding:1rem 0;margin-top:3rem}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.center{text-align:center}
+.muted{color:var(--muted)}
+.contact-form form{display:grid;gap:.75rem;max-width:600px}
+.contact-form input,.contact-form textarea{padding:.6rem;border:1px solid #ddd;border-radius:6px}
+.menu-header{padding:2rem 0}
+.menu-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.menu-section h3{margin-top:0}
+@media (max-width:800px){
+  .intro{flex-direction:column}
+  .hero-decor{display:none}
+  .site-title{font-size:2.2rem}
+  .gallery-preview .grid{grid-template-columns:repeat(2,1fr)}
+}

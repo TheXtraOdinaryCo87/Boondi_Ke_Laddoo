@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Club Cafe — Contact</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header small">
+    <nav class="nav container">
+      <a class="logo" href="index.html">
+        <img src="../Club Cafe/Assets/Cl%C3%BCb%20C%C3%A3f%C3%A9%20L%C3%B6g%C3%B6.svg" alt="logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="contact-hero">
+      <h1>Contact Us</h1>
+      <p>Have a question, reservation request, or catering inquiry? Send us a note.</p>
+    </section>
+
+    <section class="contact-form">
+      <form id="contactForm">
+        <label>Name <input type="text" id="name" required></label>
+        <label>Email <input type="email" id="email" required></label>
+        <label>Message <textarea id="message" rows="5" required></textarea></label>
+        <p><button type="submit" class="btn">Send Message</button></p>
+        <p id="formMsg" class="muted"></p>
+      </form>
+    </section>
+
+    <section class="contact-info">
+      <p><strong>Address:</strong> 123 Nostalgia Lane, Old Town</p>
+      <p><strong>Phone:</strong> +91 98765 43210</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© Club Cafe</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
