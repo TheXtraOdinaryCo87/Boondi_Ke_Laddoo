@@ -70,3 +70,29 @@ header::after {
 header:hover::after {
   opacity: 0.4;
 }
+
+/* Gallery grid styles for featured cakes */
+#gallery-grid {
+  margin-top: 2rem;
+}
+#gallery-grid .grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#gallery-grid figure {
+  width: 260px;
+}
+#gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+#gallery-grid figcaption {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #242424;
+}

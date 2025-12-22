@@ -642,6 +642,61 @@
         background: #a02334;
       }
 
+      /* Carousel styles for gallery section */
+      .carousel {
+        overflow: hidden;
+        position: relative;
+        margin: 1.5rem 0;
+      }
+
+      .carousel-track {
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+        animation: scroll-left 14s linear infinite;
+        will-change: transform;
+        transform: translateZ(0);
+      }
+
+      .carousel-item {
+        flex: 0 0 260px;
+        min-width: 260px;
+        border-radius: 12px;
+        overflow: hidden;
+        background: rgba(255,255,255,0.04);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+        backface-visibility: hidden;
+      }
+
+      .carousel-item figcaption {
+        padding: 0.5rem;
+        text-align: center;
+        color: #eaeaea;
+        font-weight: 600;
+        background: rgba(0,0,0,0.18);
+      }
+
+      .carousel:hover .carousel-track {
+        animation-play-state: paused;
+      }
+
+      @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      @media (max-width: 700px) {
+        .carousel-item { flex: 0 0 200px; min-width: 160px; }
+        .carousel-item img { height: 140px; }
+      }
+
       /* About Section */
       .about-content {
         display: grid;
@@ -1173,15 +1228,140 @@
     <!-- Gallery Section -->
     <section id="gallery">
       <h2>🎄 Gallery 🎄</h2>
-      <div class="gallery-grid">
-        <div class="gallery-item"><div>🎂</div></div>
-        <div class="gallery-item"><div>🍰</div></div>
-        <div class="gallery-item"><div>🧁</div></div>
-        <div class="gallery-item"><div>🍪</div></div>
-        <div class="gallery-item"><div>🎂</div></div>
-        <div class="gallery-item"><div>🍰</div></div>
-        <div class="gallery-item"><div>🧁</div></div>
-        <div class="gallery-item"><div>🍪</div></div>
+
+      <div class="carousel" aria-label="Featured cakes carousel">
+        <div class="carousel-track">
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Classic%20Black%20Forest.jpg" alt="Classic Black Forest" loading="lazy">
+            <figcaption>Classic Black Forest</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Black%20Forest%20Pastry.jpeg" alt="Black Forest Pastry" loading="lazy">
+            <figcaption>Black Forest Pastry</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Vanilla%20Buttercream.jpeg" alt="Vanilla Buttercream" loading="lazy">
+            <figcaption>Vanilla Buttercream</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Pineapple%20fresh%20cream.jpeg" alt="Pineapple Fresh Cream" loading="lazy">
+            <figcaption>Pineapple Fresh Cream</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Blueberry%20Cheesecake%20.jpeg" alt="Blueberry Cheesecake" loading="lazy">
+            <figcaption>Blueberry Cheesecake</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Boondi%20Ke%20Laddu.jpeg" alt="Boondi Ke Laddu" loading="lazy">
+            <figcaption>Boondi Ke Laddu</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Butterscotch%20Caramel%20Pastry.jpeg" alt="Butterscotch Caramel Pastry" loading="lazy">
+            <figcaption>Butterscotch Caramel Pastry</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Chocolate%20Pastry.jpeg" alt="Chocolate Pastry" loading="lazy">
+            <figcaption>Chocolate Pastry</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Chocolate%20Truffle%20.jpeg" alt="Chocolate Truffle" loading="lazy">
+            <figcaption>Chocolate Truffle</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Ferrero%20Roscher%20Cake.jpeg" alt="Ferrero Rocher Cake" loading="lazy">
+            <figcaption>Ferrero Rocher Cake</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Oreo%20Cake.jpeg" alt="Oreo Cake" loading="lazy">
+            <figcaption>Oreo Cake</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Oreo%20Pastry.jpeg" alt="Oreo Pastry" loading="lazy">
+            <figcaption>Oreo Pastry</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Red%20Velvet%20.jpeg" alt="Red Velvet" loading="lazy">
+            <figcaption>Red Velvet</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Red%20Velvet%20Pastry.jpeg" alt="Red Velvet Pastry" loading="lazy">
+            <figcaption>Red Velvet Pastry</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Sprinkle%20Cupcake.jpeg" alt="Sprinkle Cupcake" loading="lazy">
+            <figcaption>Sprinkle Cupcake</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Strawberry%20Pastry.jpeg" alt="Strawberry Pastry" loading="lazy">
+            <figcaption>Strawberry Pastry</figcaption>
+          </figure>
+
+          <!-- Duplicate for seamless infinite scroll -->
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Classic%20Black%20Forest.jpg" alt="Classic Black Forest" loading="lazy">
+            <figcaption>Classic Black Forest</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Black%20Forest%20Pastry.jpeg" alt="Black Forest Pastry" loading="lazy">
+            <figcaption>Black Forest Pastry</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Vanilla%20Buttercream.jpeg" alt="Vanilla Buttercream" loading="lazy">
+            <figcaption>Vanilla Buttercream</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Pineapple%20fresh%20cream.jpeg" alt="Pineapple Fresh Cream" loading="lazy">
+            <figcaption>Pineapple Fresh Cream</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Blueberry%20Cheesecake%20.jpeg" alt="Blueberry Cheesecake" loading="lazy">
+            <figcaption>Blueberry Cheesecake</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Boondi%20Ke%20Laddu.jpeg" alt="Boondi Ke Laddu" loading="lazy">
+            <figcaption>Boondi Ke Laddu</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Butterscotch%20Caramel%20Pastry.jpeg" alt="Butterscotch Caramel Pastry" loading="lazy">
+            <figcaption>Butterscotch Caramel Pastry</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Chocolate%20Pastry.jpeg" alt="Chocolate Pastry" loading="lazy">
+            <figcaption>Chocolate Pastry</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Chocolate%20Truffle%20.jpeg" alt="Chocolate Truffle" loading="lazy">
+            <figcaption>Chocolate Truffle</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Ferrero%20Roscher%20Cake.jpeg" alt="Ferrero Rocher Cake" loading="lazy">
+            <figcaption>Ferrero Rocher Cake</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Oreo%20Cake.jpeg" alt="Oreo Cake" loading="lazy">
+            <figcaption>Oreo Cake</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Oreo%20Pastry.jpeg" alt="Oreo Pastry" loading="lazy">
+            <figcaption>Oreo Pastry</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Red%20Velvet%20.jpeg" alt="Red Velvet" loading="lazy">
+            <figcaption>Red Velvet</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Red%20Velvet%20Pastry.jpeg" alt="Red Velvet Pastry" loading="lazy">
+            <figcaption>Red Velvet Pastry</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Sprinkle%20Cupcake.jpeg" alt="Sprinkle Cupcake" loading="lazy">
+            <figcaption>Sprinkle Cupcake</figcaption>
+          </figure>
+          <figure class="carousel-item">
+            <img src="Club Cafe/Assets/Strawberry%20Pastry.jpeg" alt="Strawberry Pastry" loading="lazy">
+            <figcaption>Strawberry Pastry</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -1503,7 +1683,7 @@
           name: "Classic Black Forest",
           category: "signature",
           price: 650,
-          image: "Club Cafe/Assets/Black Forest Pastry.jpeg",
+          image: "Club Cafe/Assets/Classic Black Forest.jpg",
           id: 1,
         },
         {
@@ -1517,14 +1697,14 @@
           name: "Vanilla Buttercream",
           category: "signature",
           price: 600,
-          image: "Club Cafe/Assets/Backdrop.jpg",
+          image: "Club Cafe/Assets/Vanilla Buttercream.jpeg",
           id: 3,
         },
         {
           name: "Pineapple Fresh Cream",
           category: "signature",
           price: 550,
-          image: "Club Cafe/Assets/Backdrop1.jpg",
+          image: "Club Cafe/Assets/Pineapple fresh cream.jpeg",
           id: 4,
         },
         {
