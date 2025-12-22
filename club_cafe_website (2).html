@@ -370,6 +370,14 @@
         justify-content: center;
         font-size: 4rem;
         position: relative;
+        overflow: hidden;
+      }
+
+      .menu-item-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .menu-item-img::before {
@@ -1499,6 +1507,7 @@
           category: "signature",
           price: 650,
           emoji: "🎂",
+          image: "Club Cafe/Assets/Black Forest Pastry.jpeg",
           id: 1,
         },
         {
@@ -1506,6 +1515,7 @@
           category: "signature",
           price: 700,
           emoji: "🎂",
+          image: "Club Cafe/Assets/Red Velvet .jpeg",
           id: 2,
         },
         {
@@ -1513,6 +1523,7 @@
           category: "signature",
           price: 600,
           emoji: "🎂",
+          image: "Club Cafe/Assets/Vanilla Buttercream.jpeg",
           id: 3,
         },
         {
@@ -1527,6 +1538,7 @@
           category: "signature",
           price: 750,
           emoji: "🎂",
+          image: "Club Cafe/Assets/Chocolate Truffle .jpeg",
           id: 5,
         },
         {
@@ -1534,6 +1546,7 @@
           category: "premium",
           price: 1200,
           emoji: "🍰",
+          image: "Club Cafe/Assets/Ferrero Roscher Cake.jpeg",
           id: 6,
         },
         {
@@ -1541,6 +1554,7 @@
           category: "premium",
           price: 900,
           emoji: "🍰",
+          image: "Club Cafe/Assets/Oreo Cake.jpeg",
           id: 7,
         },
         {
@@ -1548,6 +1562,7 @@
           category: "premium",
           price: 1100,
           emoji: "🍰",
+          image: "Club Cafe/Assets/Blueberry Cheesecake .jpeg",
           id: 8,
         },
         {
@@ -1555,6 +1570,7 @@
           category: "premium",
           price: 950,
           emoji: "🍰",
+          image: "Club Cafe/Assets/Butterscotch Caramel Pastry.jpeg",
           id: 9,
         },
         {
@@ -1562,6 +1578,7 @@
           category: "cupcakes",
           price: 80,
           emoji: "🧁",
+          image: "Club Cafe/Assets/Chocolate Pastry.jpeg",
           id: 10,
         },
         {
@@ -1569,6 +1586,7 @@
           category: "cupcakes",
           price: 70,
           emoji: "🧁",
+          image: "Club Cafe/Assets/Sprinkle Cupcake.jpeg",
           id: 11,
         },
         {
@@ -1576,6 +1594,7 @@
           category: "cupcakes",
           price: 90,
           emoji: "🧁",
+          image: "Club Cafe/Assets/Red Velvet Pastry.jpeg",
           id: 12,
         },
         {
@@ -1583,6 +1602,7 @@
           category: "cupcakes",
           price: 85,
           emoji: "🧁",
+          image: "Club Cafe/Assets/Oreo Pastry.jpeg",
           id: 13,
         },
         {
@@ -1590,6 +1610,7 @@
           category: "pastries",
           price: 60,
           emoji: "🍰",
+          image: "Club Cafe/Assets/Chocolate Pastry.jpeg",
           id: 14,
         },
         {
@@ -1597,6 +1618,7 @@
           category: "pastries",
           price: 70,
           emoji: "🍰",
+          image: "Club Cafe/Assets/Black Forest Pastry.jpeg",
           id: 15,
         },
         {
@@ -1604,6 +1626,7 @@
           category: "pastries",
           price: 65,
           emoji: "🍰",
+          image: "Club Cafe/Assets/Strawberry Pastry.jpeg",
           id: 16,
         },
         {
@@ -1611,6 +1634,7 @@
           category: "pastries",
           price: 65,
           emoji: "🍰",
+          image: "Club Cafe/Assets/Butterscotch Pastry.jpeg",
           id: 17,
         },
         {
@@ -1618,6 +1642,7 @@
           category: "pastries",
           price: 75,
           emoji: "🍡",
+          image: "Club Cafe/Assets/Boondi Ke Laddu.jpeg",
           id: 18,
         },
       ];
@@ -1737,11 +1762,21 @@
           const card = document.createElement("div");
           card.className = "menu-item";
           card.innerHTML = `
-                <div class="menu-item-img">${item.emoji}</div>
+                <div class="menu-item-img">
+                  ${
+                    item.image
+                      ? `<img src="${item.image}" alt="${item.name}"/>`
+                      : item.emoji
+                  }
+                </div>
                 <div class="menu-item-content">
                   <div class="name-panel"><h3>${item.name}</h3></div>
-                  <div class="price-panel"><p class="price">₹${item.price}</p></div>
-                  <button class="btn add-to-cart-btn" onclick="addToCart(${item.id})">
+                  <div class="price-panel"><p class="price">₹${
+                    item.price
+                  }</p></div>
+                  <button class="btn add-to-cart-btn" onclick="addToCart(${
+                    item.id
+                  })">
                     Add to Cart
                   </button>
                 </div>
