@@ -20,7 +20,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-      }      
+      }
 
       /* Hide scrollbars but keep scrolling functionality */
       html,
@@ -45,15 +45,48 @@
 
       /* Cursor policy: avoid I-beam on plain text; only show text cursor for input fields */
       /* Use default arrow for non-interactive text, pointer for clickable controls */
-      :where(h1,h2,h3,h4,h5,h6,p,li,span,label,figcaption,blockquote,small,strong,em,div,section,header,footer) {
+      :where(
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6,
+          p,
+          li,
+          span,
+          label,
+          figcaption,
+          blockquote,
+          small,
+          strong,
+          em,
+          div,
+          section,
+          header,
+          footer
+        ) {
         cursor: default;
       }
 
-      a, a * , nav a, button, .btn, .category-btn, .cart-icon, .menu-item, .menu-item * {
+      a,
+      a *,
+      nav a,
+      button,
+      .btn,
+      .category-btn,
+      .cart-icon,
+      .menu-item,
+      .menu-item * {
         cursor: pointer;
       }
 
-      input[type="text"], input[type="email"], input[type="tel"], textarea, input, textarea {
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea,
+      input,
+      textarea {
         cursor: text;
       }
 
@@ -383,12 +416,12 @@
         overflow: hidden;
       }
 
-      .menu-item-img img{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        object-position:center;
-        display:block;
+      .menu-item-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
       }
 
       .menu-item-img::before {
@@ -677,8 +710,8 @@
         min-width: 260px;
         border-radius: 12px;
         overflow: hidden;
-        background: rgba(255,255,255,0.04);
-        box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
       }
 
       .carousel-item img {
@@ -694,7 +727,7 @@
         text-align: center;
         color: #eaeaea;
         font-weight: 600;
-        background: rgba(0,0,0,0.18);
+        background: rgba(0, 0, 0, 0.18);
       }
 
       .carousel:hover .carousel-track {
@@ -702,13 +735,22 @@
       }
 
       @keyframes scroll-left {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
       }
 
       @media (max-width: 700px) {
-        .carousel-item { flex: 0 0 200px; min-width: 160px; }
-        .carousel-item img { height: 140px; }
+        .carousel-item {
+          flex: 0 0 200px;
+          min-width: 160px;
+        }
+        .carousel-item img {
+          height: 140px;
+        }
       }
 
       /* About Section */
@@ -879,7 +921,9 @@
       }
 
       /* Custom icon animations: pin (jump), pi (ring) & clock (tick) */
-      pin, pi, clock {
+      pin,
+      pi,
+      clock {
         display: inline-block;
         line-height: 1;
         will-change: transform;
@@ -887,49 +931,87 @@
 
       /* pin: smooth single jump on hover */
       @keyframes pin-jump {
-        0% { transform: translateY(0); }
-        30% { transform: translateY(-12px); }
-        55% { transform: translateY(4px); }
-        100% { transform: translateY(0); }
+        0% {
+          transform: translateY(0);
+        }
+        30% {
+          transform: translateY(-12px);
+        }
+        55% {
+          transform: translateY(4px);
+        }
+        100% {
+          transform: translateY(0);
+        }
       }
 
       /* pi: rapid clockwise-anticlockwise alternation to simulate ringing */
       @keyframes pi-ring {
-        0% { transform: rotate(0deg); }
-        10% { transform: rotate(25deg); }
-        22% { transform: rotate(-25deg); }
-        34% { transform: rotate(20deg); }
-        46% { transform: rotate(-18deg); }
-        58% { transform: rotate(14deg); }
-        70% { transform: rotate(-8deg); }
-        82% { transform: rotate(6deg); }
-        100% { transform: rotate(0deg); }
+        0% {
+          transform: rotate(0deg);
+        }
+        10% {
+          transform: rotate(25deg);
+        }
+        22% {
+          transform: rotate(-25deg);
+        }
+        34% {
+          transform: rotate(20deg);
+        }
+        46% {
+          transform: rotate(-18deg);
+        }
+        58% {
+          transform: rotate(14deg);
+        }
+        70% {
+          transform: rotate(-8deg);
+        }
+        82% {
+          transform: rotate(6deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
       }
 
       /* clock: rapid subtle tick (clockwise then anticlockwise) */
       @keyframes clock-tick {
-        0% { transform: rotate(0deg) scale(1); }
-        12% { transform: rotate(10deg) scale(1.03); }
-        28% { transform: rotate(-8deg) scale(1.02); }
-        44% { transform: rotate(6deg) scale(1.01); }
-        60% { transform: rotate(-4deg) scale(1); }
-        100% { transform: rotate(0deg) scale(1); }
+        0% {
+          transform: rotate(0deg) scale(1);
+        }
+        12% {
+          transform: rotate(10deg) scale(1.03);
+        }
+        28% {
+          transform: rotate(-8deg) scale(1.02);
+        }
+        44% {
+          transform: rotate(6deg) scale(1.01);
+        }
+        60% {
+          transform: rotate(-4deg) scale(1);
+        }
+        100% {
+          transform: rotate(0deg) scale(1);
+        }
       }
 
       /* Trigger animations on hover of the heading (single iteration) */
       .info-card h3:hover pin {
         transform-origin: 50% 100%; /* anchor at bottom for a natural jump */
-        animation: pin-jump 600ms cubic-bezier(.2,.8,.2,1) 0s 1 both;
+        animation: pin-jump 600ms cubic-bezier(0.2, 0.8, 0.2, 1) 0s 1 both;
       }
 
       .info-card h3:hover pi {
         transform-origin: 50% 25%; /* anchor near top for a swinging phone effect */
-        animation: pi-ring 700ms cubic-bezier(.5,0,.5,1) 0s 1 both;
+        animation: pi-ring 700ms cubic-bezier(0.5, 0, 0.5, 1) 0s 1 both;
       }
 
       .info-card h3:hover clock {
         transform-origin: 50% 50%; /* center anchor for clock tick */
-        animation: clock-tick 650ms cubic-bezier(.4,.0,.2,1) 0s 1 both;
+        animation: clock-tick 650ms cubic-bezier(0.4, 0, 0.2, 1) 0s 1 both;
       }
 
       /* Respect reduced motion preferences */
@@ -1317,133 +1399,261 @@
       <div class="carousel" aria-label="Featured cakes carousel">
         <div class="carousel-track">
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Classic%20Black%20Forest.jpg" alt="Classic Black Forest" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Classic%20Black%20Forest.jpg"
+              alt="Classic Black Forest"
+              loading="lazy"
+            />
             <figcaption>Classic Black Forest</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Black%20Forest%20Pastry.jpeg" alt="Black Forest Pastry" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Black%20Forest%20Pastry.jpeg"
+              alt="Black Forest Pastry"
+              loading="lazy"
+            />
             <figcaption>Black Forest Pastry</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Vanilla%20Buttercream.jpeg" alt="Vanilla Buttercream" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Vanilla%20Buttercream.jpeg"
+              alt="Vanilla Buttercream"
+              loading="lazy"
+            />
             <figcaption>Vanilla Buttercream</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Pineapple%20fresh%20cream.jpeg" alt="Pineapple Fresh Cream" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Pineapple%20fresh%20cream.jpeg"
+              alt="Pineapple Fresh Cream"
+              loading="lazy"
+            />
             <figcaption>Pineapple Fresh Cream</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Blueberry%20Cheesecake%20.jpeg" alt="Blueberry Cheesecake" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Blueberry%20Cheesecake%20.jpeg"
+              alt="Blueberry Cheesecake"
+              loading="lazy"
+            />
             <figcaption>Blueberry Cheesecake</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Boondi%20Ke%20Laddu.jpeg" alt="Boondi Ke Laddu" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Boondi%20Ke%20Laddu.jpeg"
+              alt="Boondi Ke Laddu"
+              loading="lazy"
+            />
             <figcaption>Boondi Ke Laddu</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Butterscotch%20Caramel%20Pastry.jpeg" alt="Butterscotch Caramel Pastry" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Butterscotch%20Caramel%20Pastry.jpeg"
+              alt="Butterscotch Caramel Pastry"
+              loading="lazy"
+            />
             <figcaption>Butterscotch Caramel Pastry</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Chocolate%20Pastry.jpeg" alt="Chocolate Pastry" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Chocolate%20Pastry.jpeg"
+              alt="Chocolate Pastry"
+              loading="lazy"
+            />
             <figcaption>Chocolate Pastry</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Chocolate%20Truffle%20.jpeg" alt="Chocolate Truffle" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Chocolate%20Truffle%20.jpeg"
+              alt="Chocolate Truffle"
+              loading="lazy"
+            />
             <figcaption>Chocolate Truffle</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Ferrero%20Roscher%20Cake.jpeg" alt="Ferrero Rocher Cake" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Ferrero%20Roscher%20Cake.jpeg"
+              alt="Ferrero Rocher Cake"
+              loading="lazy"
+            />
             <figcaption>Ferrero Rocher Cake</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Oreo%20Cake.jpeg" alt="Oreo Cake" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Oreo%20Cake.jpeg"
+              alt="Oreo Cake"
+              loading="lazy"
+            />
             <figcaption>Oreo Cake</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Oreo%20Pastry.jpeg" alt="Oreo Pastry" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Oreo%20Pastry.jpeg"
+              alt="Oreo Pastry"
+              loading="lazy"
+            />
             <figcaption>Oreo Pastry</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Red%20Velvet%20.jpeg" alt="Red Velvet" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Red%20Velvet%20.jpeg"
+              alt="Red Velvet"
+              loading="lazy"
+            />
             <figcaption>Red Velvet</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Red%20Velvet%20Pastry.jpeg" alt="Red Velvet Pastry" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Red%20Velvet%20Pastry.jpeg"
+              alt="Red Velvet Pastry"
+              loading="lazy"
+            />
             <figcaption>Red Velvet Pastry</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Sprinkle%20Cupcake.jpeg" alt="Sprinkle Cupcake" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Sprinkle%20Cupcake.jpeg"
+              alt="Sprinkle Cupcake"
+              loading="lazy"
+            />
             <figcaption>Sprinkle Cupcake</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Strawberry%20Pastry.jpeg" alt="Strawberry Pastry" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Strawberry%20Pastry.jpeg"
+              alt="Strawberry Pastry"
+              loading="lazy"
+            />
             <figcaption>Strawberry Pastry</figcaption>
           </figure>
 
           <!-- Duplicate for seamless infinite scroll -->
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Classic%20Black%20Forest.jpg" alt="Classic Black Forest" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Classic%20Black%20Forest.jpg"
+              alt="Classic Black Forest"
+              loading="lazy"
+            />
             <figcaption>Classic Black Forest</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Black%20Forest%20Pastry.jpeg" alt="Black Forest Pastry" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Black%20Forest%20Pastry.jpeg"
+              alt="Black Forest Pastry"
+              loading="lazy"
+            />
             <figcaption>Black Forest Pastry</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Vanilla%20Buttercream.jpeg" alt="Vanilla Buttercream" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Vanilla%20Buttercream.jpeg"
+              alt="Vanilla Buttercream"
+              loading="lazy"
+            />
             <figcaption>Vanilla Buttercream</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Pineapple%20fresh%20cream.jpeg" alt="Pineapple Fresh Cream" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Pineapple%20fresh%20cream.jpeg"
+              alt="Pineapple Fresh Cream"
+              loading="lazy"
+            />
             <figcaption>Pineapple Fresh Cream</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Blueberry%20Cheesecake%20.jpeg" alt="Blueberry Cheesecake" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Blueberry%20Cheesecake%20.jpeg"
+              alt="Blueberry Cheesecake"
+              loading="lazy"
+            />
             <figcaption>Blueberry Cheesecake</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Boondi%20Ke%20Laddu.jpeg" alt="Boondi Ke Laddu" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Boondi%20Ke%20Laddu.jpeg"
+              alt="Boondi Ke Laddu"
+              loading="lazy"
+            />
             <figcaption>Boondi Ke Laddu</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Butterscotch%20Caramel%20Pastry.jpeg" alt="Butterscotch Caramel Pastry" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Butterscotch%20Caramel%20Pastry.jpeg"
+              alt="Butterscotch Caramel Pastry"
+              loading="lazy"
+            />
             <figcaption>Butterscotch Caramel Pastry</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Chocolate%20Pastry.jpeg" alt="Chocolate Pastry" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Chocolate%20Pastry.jpeg"
+              alt="Chocolate Pastry"
+              loading="lazy"
+            />
             <figcaption>Chocolate Pastry</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Chocolate%20Truffle%20.jpeg" alt="Chocolate Truffle" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Chocolate%20Truffle%20.jpeg"
+              alt="Chocolate Truffle"
+              loading="lazy"
+            />
             <figcaption>Chocolate Truffle</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Ferrero%20Roscher%20Cake.jpeg" alt="Ferrero Rocher Cake" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Ferrero%20Roscher%20Cake.jpeg"
+              alt="Ferrero Rocher Cake"
+              loading="lazy"
+            />
             <figcaption>Ferrero Rocher Cake</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Oreo%20Cake.jpeg" alt="Oreo Cake" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Oreo%20Cake.jpeg"
+              alt="Oreo Cake"
+              loading="lazy"
+            />
             <figcaption>Oreo Cake</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Oreo%20Pastry.jpeg" alt="Oreo Pastry" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Oreo%20Pastry.jpeg"
+              alt="Oreo Pastry"
+              loading="lazy"
+            />
             <figcaption>Oreo Pastry</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Red%20Velvet%20.jpeg" alt="Red Velvet" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Red%20Velvet%20.jpeg"
+              alt="Red Velvet"
+              loading="lazy"
+            />
             <figcaption>Red Velvet</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Red%20Velvet%20Pastry.jpeg" alt="Red Velvet Pastry" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Red%20Velvet%20Pastry.jpeg"
+              alt="Red Velvet Pastry"
+              loading="lazy"
+            />
             <figcaption>Red Velvet Pastry</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Sprinkle%20Cupcake.jpeg" alt="Sprinkle Cupcake" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Sprinkle%20Cupcake.jpeg"
+              alt="Sprinkle Cupcake"
+              loading="lazy"
+            />
             <figcaption>Sprinkle Cupcake</figcaption>
           </figure>
           <figure class="carousel-item">
-            <img src="Club Cafe/Assets/Strawberry%20Pastry.jpeg" alt="Strawberry Pastry" loading="lazy">
+            <img
+              src="Club Cafe/Assets/Strawberry%20Pastry.jpeg"
+              alt="Strawberry Pastry"
+              loading="lazy"
+            />
             <figcaption>Strawberry Pastry</figcaption>
           </figure>
         </div>
@@ -1472,8 +1682,12 @@
           </p>
         </div>
         <div class="about-img">
-          <img src="Club Cafe/Assets/Gallery_backdrop_upscaled.png" alt="Our story backdrop" loading="lazy">
-        </div> 
+          <img
+            src="Club Cafe/Assets/Gallery_backdrop_upscaled.png"
+            alt="Our story backdrop"
+            loading="lazy"
+          />
+        </div>
       </div>
     </section>
 
@@ -2010,19 +2224,24 @@
           card.className = "menu-item";
           card.innerHTML = `
                 <div class="menu-item-img">
-                  <img src="${item.image || 'Club Cafe/Assets/Backdrop.jpg'}" alt="${item.name}" loading="lazy">
+                  <img src="${
+                    item.image || "Club Cafe/Assets/Backdrop.jpg"
+                  }" alt="${item.name}" loading="lazy">
                 </div>
                 <div class="menu-item-content">
                   <div class="name-panel"><h3>${item.name}</h3></div>
-                  <div class="price-panel"><p class="price">₹${item.price}</p></div>
-                  <button class="btn add-to-cart-btn" onclick="addToCart(${item.id})">
+                  <div class="price-panel"><p class="price">₹${
+                    item.price
+                  }</p></div>
+                  <button class="btn add-to-cart-btn" onclick="addToCart(${
+                    item.id
+                  })">
                     Add to Cart
                   </button>
                 </div>
               `;
           grid.appendChild(card);
         });
-
       }
 
       // Category Filter
