@@ -21,6 +21,15 @@
         padding: 0;
         box-sizing: border-box;
       }
+      snow {
+        display: block;
+        animation: rota 4s linear infinite;
+      }
+
+      @keyframes rota {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
 
       /* Hide scrollbars but keep scrolling functionality */
       html,
@@ -1421,7 +1430,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
       <h1>🎄 Welcome to Club Cafe 🎄</h1>
-      <p>Freshly Baked Christmas Cakes & Pastries Made with Love ❄️</p>
+      <p>Freshly Baked Christmas Cakes & Pastries Made with Love <snow>❄️</snow></p>
       <a href="#menu" class="btn">Order Now 🎁</a>
     </section>
 
